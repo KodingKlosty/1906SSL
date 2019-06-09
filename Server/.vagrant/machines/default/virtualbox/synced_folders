@@ -1,0 +1,1 @@
+{"virtualbox":{"/var/www/html":{"guestpath":"/var/www/html","hostpath":"/Users/klosty/Desktop/FS/1906_SSL/Week1/Server","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/klosty/Desktop/FS/1906_SSL/Week1/Server","disabled":false,"__vagrantfile":true}}}
