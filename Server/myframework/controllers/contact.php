@@ -1,6 +1,6 @@
 <?php
 
-class welcome extends AppController{
+class contact extends AppController{
 
     public function __construct(){
 
@@ -10,9 +10,9 @@ class welcome extends AppController{
             "About",
             "Contact"
         );
-
+        
         $this->getView("header");
-        $this->getView("welcome", $menu);
+        $this->getView("contact", $menu);
         $this->getView("footer");
 
     }

@@ -1,6 +1,6 @@
 <?php
 
-class welcome extends AppController{
+class furbabies extends AppController{
 
     public function __construct(){
 
@@ -12,7 +12,7 @@ class welcome extends AppController{
         );
 
         $this->getView("header");
-        $this->getView("welcome", $menu);
+        $this->getView("furbabies", $menu);
         $this->getView("footer");
 
     }
