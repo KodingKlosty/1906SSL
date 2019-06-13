@@ -15,7 +15,7 @@ class AppController{
 
         if ($urlPathParts[0]) {
 
-          include('./controllers/') . $urlPathParts[0] . ".php";
+          include './controllers/' . $urlPathParts[0] . ".php";
 
             $appcon = new $urlPathParts[0]($this);
 
@@ -27,7 +27,7 @@ class AppController{
 
            		$methodVariable = array($appcon, 'index');
 
-              if(is_callable($methodVariable, false, $callable_name)){
+                if(is_callable($methodVariable, false, $callable_name)){
 
             	       $appcon->index($this);
 
@@ -37,7 +37,7 @@ class AppController{
 
         }else{
 
-            include('./controllers/') . $config['defaultController'] . ".php";
+            include './controllers/' . $config['defaultController'] . ".php";
             $appcon = new $config['defaultController']($this);
             if (isset($urlPathParts[1])) {
                 $appcon->config['defaultController'][1]();
@@ -72,7 +72,9 @@ class AppController{
 
     }
 
+    
 }
+
 
 
 

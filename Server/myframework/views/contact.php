@@ -1,6 +1,6 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#">PLH</a>
+  <a class="navbar-brand" href="/">PLH</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -12,13 +12,16 @@
         {
             if($x == 0)
             {
-                echo "<li class='nav-item'><a class='nav-link' href='welcome'>$data[$x]</a></li>";
+              echo "<li class='nav-item'><a class='nav-link' href='/'>$data[$x]</a></li>";
             }
             else{
-                echo "<li class='nav-item'><a class='nav-link' href='$data[$x]'>$data[$x]</a></li>";
+              echo "<li class='nav-item'><a class='nav-link' href='$data[$x]'>$data[$x]</a></li>";
             }
         }
       ?>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class='nav-item'><a class='nav-link' href='signInReq'>Sign In</a></li>
     </ul>
   </div>
 </nav>
@@ -27,29 +30,37 @@
 
   <div class="starter-template">
     <h1>Contact</h1>
-    <button type="button" class="btn btn-lg btn-info" data-toggle="modal" data-target="#dimthelights" >I'm a Pretty Modal</button>
-  </div>
-
-  <!-- Modal -->
-  <div class="modal" id="dimthelights" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Contact Us</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+    <div class="shadow p-3 mb-5 rounded">
+      <form action="/welcome/contactSubmit" method="POST">
+      <div class="form-group">
+        <p>Your Contact Information</p>
+        <input type='text' name='usersName' id='usersName' placeholder='Name' required>
+        <input type='email' name='usersEmail' id='usersEmail' placeholder='Email'required>
       </div>
-      <div class="modal-body">
-      <p>Please Join our mailing list!</p>
-        <input id="userName" placeholder="Name">
-        <input id="userEmail" placeholder="Email">
-        
+      <div class="form-group">
+        <p> Please select perferred sex </p>
+          <input type='radio' name='sex' value='male'>Male
+          <input type='radio' name='sex' value='female'>Female
+          <input type='radio' name='sex' value='either'>Doesn't Matter I just want a Husky
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
-      </div>
+      <div class="form-group">
+      <p> Please select a primary color </p>
+          <label for="ColorSelect">Primary Color</label>
+          <select class="form-control" id="ColorSelect">
+            <option>White</option>
+            <option>Black</option>
+            <option>Brown</option>
+            <option>Tan</option>
+            <option>Gray</option>
+          </select>
+        </div>
+        <p> Please leave us a note if you would like. </p>
+        <div class="form-group">
+          <label for="userNotes">Your Special Note</label>
+          <textarea class="form-control" id="userNotes" rows="3"></textarea>
+        </div>
+        <button type='submit' class="btn btn-primary">Submit</button>
+      </form>
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#">PLH</a>
+  <a class="navbar-brand" href="/">PLH</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,15 +10,18 @@
       <?
         for($x=0; $x < count($data); $x++)
         {
-            if($x == 0)
-            {
-                echo "<li class='nav-item'><a class='nav-link' href='welcome'>$data[$x]</a></li>";
-            }
-            else{
-                echo "<li class='nav-item'><a class='nav-link' href='$data[$x]'>$data[$x]</a></li>";
-            }
+          if($x == 0)
+          {
+              echo "<li class='nav-item'><a class='nav-link' href='/'>$data[$x]</a></li>";
+          }
+          else{
+              echo "<li class='nav-item'><a class='nav-link' href='$data[$x]'>$data[$x]</a></li>";
+          }
         }
       ?>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class='nav-item'><a class='nav-link' href='signInReq'>Sign In</a></li>
     </ul>
   </div>
 </nav>
@@ -30,13 +33,13 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
         <div class="carousel-item active">
-            <img style=""src="assets/imgs/FIrstHusky.jpg" class="d-block w-100" alt="First Husky">
+            <img style=""src="/assets/imgs/FirstHusky.jpg" class="d-block w-100" alt="First Husky">
         </div>
         <div class="carousel-item">
-            <img src="assets/imgs/SecondHusky.jpg" class="d-block w-100" alt="Second Husky">
+            <img src="/assets/imgs/SecondHusky.jpg" class="d-block w-100" alt="Second Husky">
         </div>
         <div class="carousel-item">
-            <img src="assets/imgs/ThirdHusky.jpg" class="d-block w-100" alt="Third Husky">
+            <img src="/assets/imgs/ThirdHusky.jpg" class="d-block w-100" alt="Third Husky">
         </div>
     </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
