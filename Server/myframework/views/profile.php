@@ -15,7 +15,7 @@
               echo "<li class='nav-item'><a class='nav-link' href='/'>$data[$x]</a></li>";
           }
           else{
-              echo "<li class='nav-item'><a class='nav-link' href='$data[$x]'>$data[$x]</a></li>";
+            echo "<li class='nav-item'><a class='nav-link' href='$data[$x]'>$data[$x]</a></li>";
           }
         }
       ?>
@@ -36,27 +36,9 @@
 <div role="main" class="container">
 
   <div class="starter-template">
-    <h1>Fur Babies</h1>
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img style=""src="/assets/imgs/FirstHusky.jpg" class="d-block w-100" alt="First Husky">
-        </div>
-        <div class="carousel-item">
-            <img src="/assets/imgs/SecondHusky.jpg" class="d-block w-100" alt="Second Husky">
-        </div>
-        <div class="carousel-item">
-            <img src="/assets/imgs/ThirdHusky.jpg" class="d-block w-100" alt="Third Husky">
-        </div>
-    </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+    <h1>Profile Page</h1>
+</div>
+  </div>
 
 </div><!-- /.container -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

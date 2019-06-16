@@ -20,12 +20,20 @@
                 }
             ?>
             </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class='nav-item'><a class='nav-link' href='signInReq'>Sign In</a></li>
-            </ul>
+            <<?if(@$_SESSION["loggedin"] && @$_SESSION["loggedin"]==1){?>
+    <ul class="navbar-nav ml-auto">
+      <li class='nav-item'><a class='nav-link' href='/welcome/profile'>Profile</a></li>
+      <li class='nav-item'><a class='nav-link' href='#'>Logout</a></li>
+    </ul>
+      <?} else {?>
+    <ul class="navbar-nav ml-auto">
+        <li class='nav-item'><a class='nav-link' href='welcome/signInReq'>Sign In</a></li>
+    </ul>
+    <?}?>
         </div>
     </nav>
-<form class="form-signin shadow p-3 mb-5 rounded">
+<span style="color:red"><?=@$_REQUEST["msg"]?$_REQUEST["msg"]:'';?> </span>
+<form class="form-signin shadow p-3 mb-5 rounded" method="post" action="/auth/login">
   <img class="mb-4" src="https://via.placeholder.com/150" alt="" width="75" height="75">
   <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
   <label for="inputEmail" class="sr-only">Email address</label>
@@ -37,7 +45,7 @@
       <input type="checkbox" value="remember-me"> Remember me
     </label>
   </div>
-  <button class="btn btn-lg btn-primary btn-block" type="button" id="ajaxbutton">Sign in</button>
+  <button class="btn btn-lg btn-primary btn-block" type="submit" >Sign in</button>
   <p class="mt-5 mb-3 text-muted">Pagie's Lil Huskies |  &copy; 2018-2019</p>
 </form>
 

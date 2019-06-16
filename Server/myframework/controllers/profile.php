@@ -1,10 +1,18 @@
 <?php
 
-class welcome extends AppController{
+class profile extends AppController{
 
     public function __construct(){
 
+            if (@$_SESSION["loggedin"] && @$_SESSION["loggedin"]==1){
 
+            
+            }else{
+            
+            header("Location:/welcome");
+            
+            }
+            
 
     }
 
@@ -18,7 +26,7 @@ class welcome extends AppController{
         );
 
         $this->getView("header");
-        $this->getView("welcome",$menu);
+        $this->getView("profile",$menu);
         $this->getView("footer");
     }
 
@@ -31,7 +39,8 @@ class welcome extends AppController{
         );
 
         $this->getView("header");
-        $this->getView("contact",$menu);
+        $random = substr( md5(rand()), 0, 7);
+        $this->getView("contact",array("cap"=>$random));
         $this->getView("footer");
     }
 
@@ -70,7 +79,6 @@ class welcome extends AppController{
         );
         $this->getView("header");
         $this->getView("contactSubmit", $menu);
-        
         
     }
 
