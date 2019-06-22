@@ -22,12 +22,12 @@
     </ul>
     <?if(@$_SESSION["loggedin"] && @$_SESSION["loggedin"]==1){?>
     <ul class="navbar-nav ml-auto">
-      <li class='nav-item'><a class='nav-link' href='/welcome/profile'>Profile</a></li>
+      <li class='nav-item'><a class='nav-link' href='/profile'>Profile</a></li>
       <li class='nav-item'><a class='nav-link' href='#'>Logout</a></li>
     </ul>
       <?} else {?>
     <ul class="navbar-nav ml-auto">
-        <li class='nav-item'><a class='nav-link' href='welcome/signInReq'>Sign In</a></li>
+        <li class='nav-item'><a class='nav-link' href='/welcome/signInReq'>Sign In</a></li>
     </ul>
     <?}?>
   </div>

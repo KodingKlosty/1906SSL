@@ -22,7 +22,7 @@
     </ul>
     <?if(@$_SESSION["loggedin"] && @$_SESSION["loggedin"]==1){?>
     <ul class="navbar-nav ml-auto">
-      <li class='nav-item'><a class='nav-link' href='/welcome/profile'>Profile</a></li>
+      <li class='nav-item'><a class='nav-link' href='/profile'>Profile</a></li>
       <li class='nav-item'><a class='nav-link' href='#'>Logout</a></li>
     </ul>
       <?} else {?>
@@ -37,6 +37,15 @@
 
   <div class="starter-template">
     <h1>Profile Page</h1>
+    <img src="/assets/defProfilePic.jpg" class="hidden-xs img-thumbnail picture"/><br>
+    <form action="/profile/update" method="POST" enctype="multipart/form-data">
+      <label class="btn btn-info btn-file" style="width: 110px;">Browse
+        <input name="img" type="file" style="display: none;">
+      </label><br>
+      <input type="submit" name="submit" value="Update" class="btn btn-primary">
+    </form>
+    <p><? echo $_SESSION["uMsg"]; ?></p>
+    
 </div>
   </div>
 

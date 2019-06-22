@@ -4,12 +4,11 @@ class profile extends AppController{
 
     public function __construct(){
 
-            if (@$_SESSION["loggedin"] && @$_SESSION["loggedin"]==1){
+            if (@$_SESSION["loggedin"] && @$_SESSION["loggedin"]=="1"){
 
             
             }else{
-            
-            header("Location:/welcome");
+            header("Location:/welcome/signInReq");
             
             }
             
@@ -101,6 +100,35 @@ class profile extends AppController{
         else{
             echo"Bad login";
         }
+    }
+
+    public function update(){
+        if($_FILES["img"]["name"] != ''){
+            $imageFileType = pathinfo("/assets/".$_FILES["img"]["name"],PATHINFO_EXTENSION);
+
+            if(file_exists("/assets/".$_FILES["img"]["name"])){
+                echo "Sorry, file exists";
+            }
+            else{
+                if($imageFileType != "jpg" && $imageFileType != "png")
+                {
+                    echo "File Type is not supported";
+                }
+                else
+                {
+                    if(move_uploaded_file($_FILES["img"]["tmp_name"],"/assets/".$_FILES["img"]["name"]))
+                    {
+                        echo "File Uploaded";
+                    }
+                    else
+                    {
+                        echo "Error Uploading";
+                    }
+
+                }
+            }
+        }
+        header("location:/profile?msg=File Uploaded");
     }
 
 }

@@ -31,7 +31,8 @@ class welcome extends AppController{
         );
 
         $this->getView("header");
-        $this->getView("contact",$menu);
+        $random = substr( md5(rand()), 0, 7);
+        $this->getView("contact",array("cap"=>$random));
         $this->getView("footer");
     }
 
@@ -69,7 +70,27 @@ class welcome extends AppController{
             "Contact"
         );
         $this->getView("header");
-        $this->getView("contactSubmit", $menu);
+        if($_SESSION["data"] == $_POST["captcha"]){
+
+            if(!filter_var($_POST["usersEmail"],FILTER_VALIDATE_EMAIL)){
+           
+           echo "Email invalid";
+           
+           echo "<br><a href='/welcome/contact'>Click here to go back</a>";
+           
+            }else{
+           
+           echo "Email valid";
+           
+           }
+           
+           }else{
+           
+            echo "Invalid captcha";
+           
+           echo "<br><a href='/welcome/contact'>Click here to go back</a>";
+           
+           }
         
         
     }

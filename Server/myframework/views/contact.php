@@ -1,3 +1,62 @@
+<?php
+  // Form Validation
+
+  //Error Messages
+  $msg = '';
+  $msgClass = '';
+
+  if(isset($_POST["submit"]))
+  {
+  $uName = @$_POST['usersName'];
+  $uEmail = @$_POST['usersEmail'];
+  $uHusky = @$_POST['sex'];
+  $uColor = @$_POST['colorSelect'];
+  $uCaptcha = @$_POST['captcha'];
+
+  
+
+    if(!empty($uName) && !empty($uEmail) && !empty($uHusky) && !empty($uColor))
+    {
+      //Passed
+      header("location:/welcome/contactSubmit");
+      
+    }
+    else{
+      //Failed
+      if (!preg_match('/^[a-zA-Z0-9\s]+$/', $uName))
+      {
+        $msg="Please fill out the Name field.";
+        $msgClass = 'alert-danger';
+      }
+      elseif (!filter_var($uEmail, FILTER_VALIDATE_EMAIL))
+      {
+        $msg="Please input a valid email address.";
+        $msgClass = 'alert-danger';
+      }
+      elseif(empty($uHusky))
+      {
+        $msg="Please select a preferred sex.";
+        $msgClass = 'alert-danger';
+      }
+      elseif(empty($uColor))
+      {
+        $msg="Please select a preferred color.";
+        $msgClass = 'alert-danger';
+      }
+      else
+      {
+        $msg="Please check your form and try again.";
+        $msgClass = 'alert-danger';
+
+      }
+      
+    }
+  }
+
+  
+  
+?>
+
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" href="/">PLH</a>
@@ -22,12 +81,12 @@
     </ul>
     <?if(@$_SESSION["loggedin"] && @$_SESSION["loggedin"]==1){?>
     <ul class="navbar-nav ml-auto">
-      <li class='nav-item'><a class='nav-link' href='/welcome/profile'>Profile</a></li>
+      <li class='nav-item'><a class='nav-link' href='/profile'>Profile</a></li>
       <li class='nav-item'><a class='nav-link' href='#'>Logout</a></li>
     </ul>
       <?} else {?>
     <ul class="navbar-nav ml-auto">
-        <li class='nav-item'><a class='nav-link' href='welcome/signInReq'>Sign In</a></li>
+        <li class='nav-item'><a class='nav-link' href='/welcome/signInReq'>Sign In</a></li>
     </ul>
     <?}?>
   </div>
@@ -39,40 +98,11 @@
     <h1>Contact</h1>
     <div class="shadow p-3 mb-5 rounded">
         <!-- Captcha -->
-        <?
-    function create_image($cap)
-    {
-        unlink("/assets/image1.png");
-        global $image;
-        $image = imagecreatetruecolor(200, 50) or die("Cannot Initialize new GD image stream");
-        $background_color = imagecolorallocate($image, 255, 255, 255);
-        $text_color = imagecolorallocate($image, 0, 255, 255);
-        $line_color = imagecolorallocate($image, 64, 64, 64);
-        $pixel_color = imagecolorallocate($image, 0, 0, 255);
-        imagefilledrectangle($image, 0, 0, 200, 50, $background_color);
-    
-        for ($i = 0; $i < 3; $i++) 
-        {
-            imageline($image, 0, rand() % 50, 200, rand() % 50, $line_color);
-        }
-        for ($i = 0; $i < 1000; $i++) 
-        {
-            imagesetpixel($image, rand() % 200, rand() % 50, $pixel_color);
-        }
-        $text_color = imagecolorallocate($image, 0, 0, 0);
-        ImageString($image, 22, 30, 22, $cap, $text_color);
-        imagepng($image, "/assets/image1.png");
-    }   
-
-        create_image($data["cap"]);
-        echo "<img src='/assets/image1.png'>";
-    
-    ?>
       <form action="/welcome/contactSubmit" method="POST">
       <div class="form-group">
         <p>Your Contact Information</p>
-        <input type='text' name='usersName' id='usersName' placeholder='Name' required>
-        <input type='email' name='usersEmail' id='usersEmail' placeholder='Email'required>
+        <input type='text' name='usersName' id='usersName' placeholder='Name' >
+        <input type='email' name='usersEmail' id='usersEmail' placeholder='Email'>
       </div>
       <div class="form-group">
         <p> Please select perferred sex </p>
@@ -97,6 +127,38 @@
           <textarea class="form-control" id="userNotes" rows="3"></textarea>
         </div>
         <div>
+        <!--Captcha-->
+        <?
+          function create_image($cap)
+          {
+              unlink("assets/image1.png");
+              global $image;
+              $image = imagecreatetruecolor(200, 50) or die("Cannot Initialize new GD image stream");
+              $background_color = imagecolorallocate($image, 255, 255, 255);
+              $text_color = imagecolorallocate($image, 0, 255, 255);
+              $line_color = imagecolorallocate($image, 64, 64, 64);
+              $pixel_color = imagecolorallocate($image, 0, 0, 255);
+              imagefilledrectangle($image, 0, 0, 200, 50, $background_color);
+          
+              for ($i = 0; $i < 3; $i++) 
+              {
+                  imageline($image, 0, rand() % 50, 200, rand() % 50, $line_color);
+              }
+              for ($i = 0; $i < 1000; $i++) 
+              {
+                  imagesetpixel($image, rand() % 200, rand() % 50, $pixel_color);
+              }
+              $text_color = imagecolorallocate($image, 0, 0, 0);
+              ImageString($image, 22, 30, 22, $cap, $text_color);
+              imagepng($image, "assets/image1.png");
+              $_SESSION["data"] = $cap;
+          }   
+          create_image($data["cap"]);
+          echo "<img src='/assets/image1.png'>";
+          
+    ?>
+
+        </div>
         <label for="exampleInputEmail1">Enter Captcha </label>
         <input name="captcha" type="captcha" id="captcha"  placeholder="">
         </div>
