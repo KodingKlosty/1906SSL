@@ -23,6 +23,7 @@
             <?if(@$_SESSION["loggedin"] && @$_SESSION["loggedin"]==1){?>
     <ul class="navbar-nav ml-auto">
       <li class='nav-item'><a class='nav-link' href='/welcome/profile'>Profile</a></li>
+      <li class="nav-item"><a class='nav-link' href='/data'>Database</a></li>
       <li class='nav-item'><a class='nav-link' href='#'>Logout</a></li>
     </ul>
       <?} else {?>

@@ -23,6 +23,7 @@
     <?if(@$_SESSION["loggedin"] && @$_SESSION["loggedin"]==1){?>
     <ul class="navbar-nav ml-auto">
       <li class='nav-item'><a class='nav-link' href='/profile'>Profile</a></li>
+      <li class="nav-item"><a class='nav-link' href='/data'>Database</a></li>
       <li class='nav-item'><a class='nav-link' href='#'>Logout</a></li>
     </ul>
       <?} else {?>
@@ -37,11 +38,7 @@
 
   <div class="starter-template">
     <h1>About Us</h1>
-    <p> Progress bar is stuck at 25% <p>
-    <div class="progress" style="height: 20px;">
-        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-    </div>
-</div>
+    
   </div>
 
 </div><!-- /.container -->

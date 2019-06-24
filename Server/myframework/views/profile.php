@@ -23,7 +23,8 @@
     <?if(@$_SESSION["loggedin"] && @$_SESSION["loggedin"]==1){?>
     <ul class="navbar-nav ml-auto">
       <li class='nav-item'><a class='nav-link' href='/profile'>Profile</a></li>
-      <li class='nav-item'><a class='nav-link' href='#'>Logout</a></li>
+      <li class="nav-item"><a class='nav-link' href='/data'>Database</a></li>
+      <li class='nav-item'><a class='nav-link' href='/auth/logout'>Logout</a></li>   
     </ul>
       <?} else {?>
     <ul class="navbar-nav ml-auto">
@@ -44,7 +45,8 @@
       </label><br>
       <input type="submit" name="submit" value="Update" class="btn btn-primary">
     </form>
-    <p><? echo $_SESSION["uMsg"]; ?></p>
+    <p>Just some random about me info here.</p>
+    
     
 </div>
   </div>

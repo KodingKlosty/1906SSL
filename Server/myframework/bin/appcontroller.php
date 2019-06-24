@@ -7,7 +7,7 @@ class AppController{
     {
 
 
-        //$this->db = new PDO("mysql:dbname=".$config["dbname"].";",$config["dbuser"],$config["dbpass"]);
+        $this->db = new PDO("mysql:dbname=".$config["dbname"].";",$config["dbuser"],$config["dbpass"]);
 
         $this->urlPathParts = $urlPathParts;
 
