@@ -9,7 +9,7 @@
         public function googleBooks($term=''){
             $client = new Google_Client();
             $client->setApplicationName("1906SSLAPI");
-            $client->setDeveloperKey("AIzaSyB9mh4UubsGkYu_ZBMtAkoPPs4NC0iidLQ");
+            $client->setDeveloperKey("Your_API_Here");
 
             $service = new Google_Service_Books($client);
 
