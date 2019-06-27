@@ -1,13 +1,15 @@
+
+
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" href="/">PLH</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-<!--   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+  <!--<div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      <?
+      <?/*
         for($x=0; $x < count($data); $x++)
         {
           if($x == 0)
@@ -17,13 +19,13 @@
           else{
             echo "<li class='nav-item'><a class='nav-link' href='$data[$x]'>$data[$x]</a></li>";
           }
-        }
+        }*/
       ?>
     </ul>
     <?if(@$_SESSION["loggedin"] && @$_SESSION["loggedin"]==1){?>
     <ul class="navbar-nav ml-auto">
       <li class='nav-item'><a class='nav-link' href='/profile'>Profile</a></li>
-      <li class="nav-item"><a class='nav-link' href='/data'>Database</a></li>
+      <li class="nav-item"><a class='nav-link' href='/profile/database'>Database</a></li>
       <li class='nav-item'><a class='nav-link' href='#'>Logout</a></li>
     </ul>
       <?} else {?>
@@ -31,21 +33,19 @@
         <li class='nav-item'><a class='nav-link' href='/welcome/signInReq'>Sign In</a></li>
     </ul>
     <?}?>
-  </div>>-->
+  </div>-->
 </nav>
 
 <div role="main" class="container">
 
-<div class="starter-template">
+  <div class="starter-template">
     <h1>Google Books API </h1>
-        <?php
-
-            foreach($data as $item){
-
-                echo $item["volumeInfo"]["title"]."<br /> \n";
-
-            }
-        ?>
+    
+        <form action="showApi" method="POST">
+        <input type="text" name="searchObj" placeholder="Book Search" />
+        <input class="btn btn-info" type="submit" />
+        
+        </form>
   </div>
 
 </div><!-- /.container -->

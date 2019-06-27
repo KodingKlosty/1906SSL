@@ -52,7 +52,7 @@ class profile extends AppController{
         );
 
         $this->getView("header");
-        $this->getView("about",$menu);
+        $this->getView("About",$menu);
         $this->getView("footer");
     }
 

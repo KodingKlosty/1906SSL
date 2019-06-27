@@ -14,6 +14,10 @@
             {
                 echo "<li class='nav-item'><a class='nav-link' href='welcome'>$data[$x]</a></li>";
             }
+            elseif($x == 4)
+            {
+              echo "<li class='nav-item'><a class='nav-link' href='/api/getApi'>API</a></li>";
+            }
             else{
                 echo "<li class='nav-item'><a class='nav-link' href='welcome/$data[$x]'>$data[$x]</a></li>";
             }

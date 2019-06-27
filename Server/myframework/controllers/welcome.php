@@ -14,7 +14,8 @@ class welcome extends AppController{
             "Home",
             "FurBabies",
             "About",
-            "Contact"
+            "Contact",
+            "API"
         );
 
         $this->getView("header");
@@ -45,7 +46,7 @@ class welcome extends AppController{
         );
 
         $this->getView("header");
-        $this->getView("about",$menu);
+        $this->getView("apiView");
         $this->getView("footer");
     }
 

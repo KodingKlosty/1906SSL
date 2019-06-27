@@ -72,6 +72,10 @@ class AppController{
 
     }
 
+    public function getGoogle(){
+        include __DIR__ . '/google-api-php-client/src/Google/autoload.php';
+    }
+
     
 }
 
